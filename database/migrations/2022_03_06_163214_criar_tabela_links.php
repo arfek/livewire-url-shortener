@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('url');
             $table->string('slug')->unique();
-            $table->boolean('is_enabled')->default();
-            $table->integer('redirected');
+            $table->boolean('is_enabled')->default(1);
+            $table->integer('redirected')->default(0);
             $table->timestamps();
         });
     }

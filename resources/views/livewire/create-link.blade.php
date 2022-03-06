@@ -1,7 +1,9 @@
 <div>
-    <form wire:submit.prevent="saveLink">
+    <form wire:submit.prevent="salvarLink">
         <div class="mb-4">
             <label for="url">URL</label>
+
+            {{--O wireModel precisa ser lazy pois é chato validar a cada tecla apertada --}}
             <x-input wire:model.lazy="url" id="url" class="block my-2 w-full" type="text" placeholder="https://google.com.br" required autofocus />
             @error('url') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
@@ -14,7 +16,7 @@
 
         <div class="flex justify-end">
             <button
-                wire:click="resetForm"
+                wire:click="resetarFormulario"
                 type="button"
                 class="inline-flex items-center px-4 py-2 bg-gray-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-400 active:bg-gray-500 focus:outline-none focus:border-gray-500 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-100 mr-2">
                 Reset
