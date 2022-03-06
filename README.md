@@ -1,4 +1,4 @@
-#URL Shortener
+# URL Shortener
 
 Aplicação simples construida em 1 dia afim de testar as funcionalidades do Laravel Livewire, em combição com a autenticação do Laravel Breeze estilizada com o Tailwind.
 
