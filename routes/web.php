@@ -24,7 +24,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/link/create', [LinkController::class, 'create'] )->name('link.create');
 
-    Route::get('/link/edit', [LinkController::class, 'edit'] )->name('link.edit');
+    Route::get('/link/{link}/edit', [LinkController::class, 'edit'] )->name('link.edit');
 });
 
 require __DIR__.'/auth.php';
