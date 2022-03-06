@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Link;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Vinkla\Hashids\Facades\Hashids;
 
 class CreateLink extends Component
 {
@@ -33,11 +34,15 @@ class CreateLink extends Component
     public function salvarLink(){
         $this->validate();
 
-        Link::create([
+        $link = Link::create([
             'url' => $this->url,
             'slug' => $this->slug ?? Str::random(40),
             'user_id' => auth()->user()->id
         ]);
+
+        if ( ! $this->slug ){
+            $link->update(['slug' => Hashids::encode($link->id)]);
+        }
     
         return redirect(route('link'));
     }
